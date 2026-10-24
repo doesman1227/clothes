@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>着る｜暮らし方</title>
+<meta name="description" content="毎朝迷わない自分の基準をつくる。骨格とパーソナルカラー、与えたい印象、素材とシルエット、配色、制服化。服を自己表現と印象設計として言葉にする個人的なノート。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#fbfaf8; --ink:#191715; --muted:#73706a; --faint:#a8a49c;
+    --line:#e5e2db; --card:#f3f1ec; --accent:#8a6a83;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#100f0e; --ink:#efece7; --muted:#918c84; --faint:#5c5852;
+      --line:#262421; --card:#181614; --accent:#b996b2;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#100f0e; --ink:#efece7; --muted:#918c84; --faint:#5c5852;
+    --line:#262421; --card:#181614; --accent:#b996b2;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",system-ui,sans-serif;
+    font-size:16px;line-height:1.95;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:48rem;margin:0 auto;padding:0 16px}
+  @media (min-width:640px){.wrap{padding:0 28px}}
+
+  .top{padding:24px 0 0}
+  .back{font-size:.75rem;letter-spacing:.1em;color:var(--muted);text-decoration:none}
+  .back:hover{color:var(--ink)}
+
+  header.hero{padding:72px 0 24px}
+  .eyebrow{font-size:.7rem;letter-spacing:.24em;color:var(--accent);margin:0 0 14px}
+  h1{font-family:"Noto Serif JP",serif;font-weight:600;font-size:clamp(2rem,6vw,2.8rem);line-height:1.4;margin:0 0 6px;letter-spacing:.04em}
+  .mn-tagline{font-family:"Noto Serif JP",serif;font-weight:500;font-size:clamp(1.05rem,2.6vw,1.4rem);line-height:1.75;letter-spacing:.02em;margin:.1em 0 1.1em;opacity:.85}
+  .lead{color:var(--muted);margin:0;max-width:34em}
+
+  .toc{list-style:none;margin:30px 0 0;padding:18px 0 0;display:flex;flex-wrap:wrap;gap:8px 18px;
+    border-top:1px solid var(--line)}
+  .toc a{font-size:.8rem;color:var(--muted);text-decoration:none}
+  .toc a:hover{color:var(--accent)}
+
+  section{padding:56px 0 0}
+  .sec-n{display:block;font-size:.66rem;letter-spacing:.2em;color:var(--faint);margin-bottom:8px}
+  h2{font-family:"Noto Serif JP",serif;font-weight:600;font-size:1.3rem;letter-spacing:.04em;margin:0 0 6px}
+  h3{font-family:"Noto Serif JP",serif;font-weight:600;font-size:1rem;margin:28px 0 6px}
+  .pull{font-family:"Noto Serif JP",serif;font-weight:500;font-size:1.05rem;line-height:1.8;margin:.2em 0 1em;opacity:.85}
+  .note{color:var(--faint);font-size:.82rem;margin:0 0 22px}
+  p{margin:0 0 14px}
+
+  .points{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:10px}
+  .points li{padding:14px 18px;background:var(--card);border-radius:3px;font-size:.95rem}
+  .points b{display:block;font-family:"Noto Serif JP",serif;font-weight:600;margin-bottom:2px}
+  .points span{color:var(--muted);font-size:.9rem}
+
+  .two{display:grid;grid-template-columns:1fr;gap:12px;margin:18px 0 0}
+  @media (min-width:640px){.two{grid-template-columns:1fr 1fr}}
+  .two div{padding:16px 18px;border:1px solid var(--line);border-radius:3px}
+  .two b{display:block;font-size:.66rem;letter-spacing:.2em;color:var(--accent);margin-bottom:8px}
+  .two ul{margin:0;padding-left:1.1em;font-size:.9rem;color:var(--muted)}
+  .two li{margin:0 0 5px}
+
+  .flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:20px 0 0;font-size:.86rem;color:var(--muted)}
+  .flow span{padding:7px 13px;background:var(--card);border-radius:3px}
+  .flow i{font-style:normal;color:var(--faint)}
+  .flow .key{color:var(--ink);box-shadow:inset 0 0 0 1px var(--accent)}
+
+  .todo{margin:16px 0 0;padding:16px 18px;border:1px dashed var(--line);border-radius:3px;
+    color:var(--faint);font-size:.86rem;line-height:1.85}
+  .todo b{display:block;font-size:.66rem;letter-spacing:.2em;color:var(--accent);margin-bottom:6px;font-weight:700}
+
+  .open ul{margin:14px 0 0;padding-left:1.2em;color:var(--muted);font-size:.92rem}
+  .open li{margin:0 0 7px}
+
+  .src{display:grid;border-top:1px solid var(--line);margin-top:12px}
+  .src a{display:flex;justify-content:space-between;align-items:baseline;gap:14px;
+    padding:14px 4px;border-bottom:1px solid var(--line);text-decoration:none;font-size:.92rem}
+  .src a:hover{color:var(--accent)}
+  .src small{color:var(--faint);font-size:.76rem;letter-spacing:.06em;white-space:nowrap}
+
+  .tl{margin-top:18px;font-size:.9rem;color:var(--muted)}
+  .tl a{color:var(--accent)}
+
+  footer{margin:88px 0 0;padding:28px 0 64px;border-top:1px solid var(--line)}
+  footer p{font-size:.78rem;color:var(--faint);line-height:1.85;margin:0 0 12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><a class="back" href="../way-of-living/">← 暮らし方</a></div>
+
+  <header class="hero">
+    <p class="eyebrow">CLOTHES</p>
+    <h1>着る</h1>
+    <p class="mn-tagline">毎朝迷わない、自分の基準をつくる。</p>
+    <p class="lead">服の話は「何を着るか」だけで閉じていません。与えたい印象を設計することは自己表現の話で、選択肢を減らすことは生活の設計の話。型をつくるためのノートです。</p>
+    <ul class="toc">
+      <li><a href="#why">服の位置づけ</a></li>
+      <li><a href="#rule">選ぶときの基準</a></li>
+      <li><a href="#have">持っているもの</a></li>
+      <li><a href="#care">手入れと入れ替え</a></li>
+      <li><a href="#next">これから着てみたいもの</a></li>
+      <li><a href="#open">まだ確かめていないこと</a></li>
+      <li><a href="#src">元になったつぶやき</a></li>
+    </ul>
+  </header>
+
+  <section id="why">
+    <span class="sec-n">01 / WHY</span>
+    <h2>服の位置づけ</h2>
+    <p class="pull">縛られず、自分の美意識で選ぶ。</p>
+    <p>漫画を読んでいて、あるキャラクターに惹かれたことがありました。和服を、かっこよく着こなしていた。決められたルールに従っているのではなく、自分が本質的に美しいと思う姿を、自分の美的感覚で選んでいるように見えた。惹かれたのは和服そのものではなく、<strong>自分の美意識で決めて、それを自然に実践している</strong>という部分でした。</p>
+    <p>いまの自分の服は、なんとなく思いついたものを買ったり、人に選んでもらったりしています。それが本当にしっくりきているかというと、そうでもない。無理をせず、粋で、自分が満足できる装いにしたい。</p>
+    <p>そのために目指しているのは、<strong>毎朝迷わない自分の基準 ― 型をつくること</strong>です。センスを磨くというより、判断を仕組みにする。憧れた人をそのまま真似るのではなく、どこに惹かれたのかを見つけること。そして、理想を追うこと自体が新しい窮屈さにならないようにしたい。</p>
+    <p class="tl">以前、装いと美という領域は自分の分類にまだ枠がない、と書いていました。このノートがその枠です。</p>
+  </section>
+
+  <section id="rule">
+    <span class="sec-n">02 / RULE</span>
+    <h2>選ぶときの基準</h2>
+    <p class="pull">安いものを選ぶのではなく、自分に合って気持ちよく使えるものを選ぶ。</p>
+    <p>型をつくるために言葉にしたい項目を並べてみました。並べてみて分かったのは、どれも「何を着るか」の外側につながっていることです。</p>
+    <ul class="points">
+      <li><b>骨格とパーソナルカラー</b><span>似合う形と色の土台。感覚ではなく、体と肌の条件から決まる部分。</span></li>
+      <li><b>TPOと、与えたい印象</b><span>場に合わせるだけでなく、どう見られたいかを設計する。ここは自己表現の話になる。</span></li>
+      <li><b>素材・シルエット・サイズ感</b><span>同じ形でも、素材とサイズで印象が変わる。いちばん差が出るところ。</span></li>
+      <li><b>配色</b><span>色相・明度・彩度に分解すると、「なんとなく好き」が説明できる言葉になる。色彩そのものの仕組みに踏み込んでいく。</span></li>
+      <li><b>制服化</b><span>選択肢を減らして迷わない仕組みをつくる。意思の量を節約するという意味で、生活の設計に近い。</span></li>
+      <li><b>ミニマルワードローブ</b><span>少ない服で回す。持ち物を減らすことは <a href="../home/#order">住む</a> の整理整頓とつながる。</span></li>
+    </ul>
+    <h3>最初の一歩は、理屈からではない</h3>
+    <p>基準を本から学ぶより先に、やってみたいことがあります。手持ちの服で「これを着ると調子がいい」と感じるものの共通点を、三つ挙げてみること。<strong>すでに自分が選んでいるものの中に、基準が隠れている</strong>気がしています。</p>
+    <div class="flow"><span>調子がいい服を集める</span><i>→</i><span>共通点を三つ挙げる</span><i>→</i><span class="key">それを型として言葉にする</span></div>
+    <p class="tl">好きな配色を三つ集めて、色相・明度・彩度に分解してみるのも同じやり方です。</p>
+  </section>
+
+  <section id="have">
+    <span class="sec-n">03 / HAVE</span>
+    <h2>持っているもの</h2>
+    <p class="note">いまの手持ちと、選び方の実際。</p>
+    <ul class="points">
+      <li><b>パーソナルコーディネートで選んでもらった服</b><span>自分に合う服を選んでもらえる点がよい。自分で選ぶ負担が減ることそのものに価値がある。</span></li>
+      <li><b>動きやすいスーツとシャツ</b><span>きちんと見えることと、体が楽であることを両立させたい。</span></li>
+      <li><b>歩きやすいランニングシューズ</b><span>よく歩き、散歩を習慣にしているので、靴は履き心地から選ぶ。</span></li>
+      <li><b>スマートウォッチ</b><span>身につけるものだが、役割は体の状態を見ること。詳しくは <a href="../health-habits/">健康</a> に。</span></li>
+    </ul>
+    <p>買い方は、少しずつ足していくのではなく、年に一度くらいまとめて買いそろえる形になっています。選ぶ負担をその時期に集めてしまう、という意味では制服化と同じ方向です。</p>
+    <p>正直に書いておくと、人に選んでもらった服は「自分に合っている」のに「しっくりきていない」ことがあります。合っていることと、納得していることは別なのだと思います。型をつくりたいのは、たぶんこの差を埋めるためです。</p>
+    <div class="todo">
+      <b>これから書く</b>
+      定番にしているもの（何を何枚持つか）。<br>
+      組み合わせで迷わないための工夫。<br>
+      「これを着ると調子がいい」服の共通点、三つ。
+    </div>
+  </section>
+
+  <section id="care">
+    <span class="sec-n">04 / CARE</span>
+    <h2>手入れと入れ替え</h2>
+    <p class="note">洗う、直す、手放す。</p>
+    <p>入れ替えのリズムは、年に一度まとめて見直す形です。手放す判断は <a href="../home/#order">住む</a> の整理整頓と同じ考え方 ― ときめかないものは手放し、ときめくものを大切にする ― で足りるはずですが、服の場合は「似合わなくなった」という軸も入ります。</p>
+    <div class="todo">
+      <b>これから書く</b>
+      手入れのしかたと頻度。<br>
+      直して使うもの、直さないもの。<br>
+      手放す判断（いつ、どうやって）。クリーニングや修理をどこに頼むか。
+    </div>
+  </section>
+
+  <section id="next">
+    <span class="sec-n">05 / NEXT</span>
+    <h2>これから着てみたいもの</h2>
+    <p class="note">叶ったら <a href="../joy/">これから</a> の記録へ移す。</p>
+    <p>整えたいものは二つ挙がっています。<strong>スーツを整えること</strong>と、<strong>靴を買い替えること</strong>。どちらも、着ると気持ちが上がるものです。</p>
+    <p>将来的には、私服だけでなくスーツについてもプロに相談して、きちんとした装いができるようにしたい。そのための予算も確保しておきたいと考えています。</p>
+    <p>ただし順番はつけます。やりたいことを数えると、部屋の片付け、引っ越し、スーツ、靴と一度に並びますが、<strong>全部を同時に、やらなくてもいい。</strong>まず部屋や引っ越しを考えて、そのあと気持ちが上がるものを一つずつ整えていく。いまの順番では、服は部屋の次です。</p>
+    <div class="todo">
+      <b>これから書く</b>
+      着てみたいもの、欲しいもの。<br>
+      試してみたい組み合わせ。<br>
+      スーツをどこに相談するか。
+    </div>
+  </section>
+
+  <section id="open" class="open">
+    <span class="sec-n">06 / OPEN</span>
+    <h2>このノートで、まだ確かめていないこと</h2>
+    <ul>
+      <li>「自分に合っている」のに「しっくりこない」のは、何が足りないからか</li>
+      <li>自分で選ぶ範囲と、人に選んでもらう範囲をどこで分けるか</li>
+      <li>パーソナルコーディネートを、どの程度の頻度で使うのが自分に合っているか</li>
+      <li>制服化で迷いを減らすことと、選べる幅を持つことのつり合い</li>
+      <li>「なんとなく好き」な色を、色相・明度・彩度の言葉にできるか</li>
+      <li>服にかけるお金の基準をどう決めるか（<a href="../money/">おかね</a> の購入基準と重なる）</li>
+      <li>与えたい印象を設計することが、無理をすることにならないか</li>
+    </ul>
+  </section>
+
+  <section id="src">
+    <span class="sec-n">07 / SOURCE</span>
+    <h2>このノートの元になったつぶやき</h2>
+    <p class="note">日々の気づきを書きとめたものから、このページをまとめています。</p>
+    <nav class="src">
+      <a href="../musings/posts/p150.html">全部を同時に、やらなくてもいい<small>2026.10.13</small></a>
+      <a href="../musings/posts/p149.html">縛られず、自分の美意識で<small>2026.10.13</small></a>
+      <a href="../musings/posts/p131.html">ファッション<small>2026.08.11</small></a>
+      <a href="../musings/posts/p130.html">色彩<small>2026.08.11</small></a>
+    </nav>
+  </section>
+
+  <footer>
+    <p>専門家ではない個人が、自分の暮らしについてまとめた個人的なノートです。内容の正確性を保証するものではありません。</p>
+    <p><a class="back" href="../way-of-living/">← 暮らし方</a>　<a class="back" href="../">← m-note トップ</a></p>
+  </footer>
+</div>
+</body>
+</html>
